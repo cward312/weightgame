@@ -1,0 +1,68 @@
+<html>
+
+  <head>
+
+    <title></title>
+    <link rel = "stylesheet" href = "weight.css">
+    <script>
+      var pics = ["<img src = 'b.jpg' height = '250px' width = '250px'>","<img src = 'c.jpg' height = '250px' width = '250px'>","<img src = 'd.jpg' height = '250px' width = '250px'>", "<img src = 'a.jpg' height = '250px' width = '250px'>"];
+      var count = 0;
+      var count2 = 0;
+      var temp = 0;
+      var final = " ";
+      var answer = ["150", "120", "6000"];
+      var guesses = [" "," "," "];
+      function pic()
+      {
+        document.getElementById('out').innerHTML = pics[0];
+      }
+      function get()
+      {
+          guesses[count] = document.getElementById('blah').value;
+          count2++;
+          document.getElementById('out').innerHTML = pics[count2];
+          count++;
+
+        if(count2 > 2)
+        {
+          count2 = 3;
+          document.getElementById('out').innerHTML = pics[count];
+        }
+      }
+        function cool()
+        {
+          compareArrays(answer, guesses);
+        }
+
+      function compareArrays(x, y)
+      {
+        for(var i = 0; i < x.length; i++)
+        {
+          if(x[i] == y[i])
+          {
+            temp = temp + 1;
+          }
+        }
+        document.getElementById('get').innerHTML = "You got  " + temp + " out of 3 points! Refresh Page to Play Again";
+      }
+    </script>
+  </head>
+  <body onload = "pic()" id = "body">
+    <h1>GUESS THE WEIGHT GAME</h1>
+    <hr>
+    <br>
+  <span id = "out"></span>
+<br>
+<br>
+<input id = "blah" type = "text" value = "enter guess">
+<br>
+<br>
+<input class = "button" type = "button" value = "Sumbit Guess" onclick = "get()">
+<br>
+<br>
+<input class = "button" type = "button" value = "Get My Score" onclick = "cool()">
+<br>
+<br>
+<span style = "color:white;font-size:30px" id = "get"></span>
+  </body>
+</html>
